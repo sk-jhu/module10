@@ -26,7 +26,7 @@ class WMATATest(unittest.TestCase):
         # are present in the response
         for incident in json_response:
             for field in required_fields:
-                self.assertIn(field, incident, f"Missing field '{field}' in incident: {incident}")
+                self.assertIn(field, incident)
 
 ################################################################################
 
@@ -38,7 +38,7 @@ class WMATATest(unittest.TestCase):
         # for each incident in the JSON response, assert that the 'UnitType' is "ESCALATOR"
         for incident in json_response:
             self.assertIn('UnitType', incident, f"Missing 'UnitType' in incident: {incident}")
-            self.assertEqual(incident['UnitType'], "ESCALATOR", f"UnitType is not 'ESCALATOR' in incident: {incident}")
+            self.assertEqual(incident['UnitType'], "ESCALATOR")
 ################################################################################
 
     # ensure all entries returned by the /elevators endpoint have a UnitType of "ELEVATOR"
@@ -48,8 +48,8 @@ class WMATATest(unittest.TestCase):
 
         # for each incident in the JSON response, assert that the 'UnitType' is "ELEVATOR"
         for incident in json_response:
-            self.assertIn('UnitType', incident, f"Missing 'UnitType' in incident: {incident}")
-            self.assertEqual(incident['UnitType'], "ELEVATOR", f"UnitType is not 'ELEVATOR' in incident: {incident}")
+            self.assertIn('UnitType', incident)
+            self.assertEqual(incident['UnitType'], "ELEVATOR")
 
 ################################################################################
 
